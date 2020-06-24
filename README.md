@@ -14,15 +14,13 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 
 #1 
-* 	Страницы входа и регистрации с именем пользователя и паролем 
-<img src="https://cdn1.iconfinder.com/data/icons/flat-and-simple-part-1/128/check_square-512.png" width="30">
+* 	Страницы входа и регистрации с именем пользователя и паролем <img src="https://cdn1.iconfinder.com/data/icons/flat-and-simple-part-1/128/check_square-512.png" width="30">
 <p align="center"><img src="https://miro.medium.com/max/1375/1*C7mhyvvlq2pS8DPeLZmAGw.png" width="500"></p>
 <p align="center"><img src="https://sujipthapa.co/media/77/1528649599.5.6_login-min.jpg" width="500"></p>
 
 
 #2
-*	Просмотр страницы, которая показывает все сообщения, изображения и комментарии всех пользователей. 
-<img src="https://cdn4.iconfinder.com/data/icons/business-2-7/512/sand_clock-512.png" width="40">
+*	Просмотр страницы, которая показывает все сообщения, изображения и комментарии всех пользователей. <img src="https://cdn4.iconfinder.com/data/icons/business-2-7/512/sand_clock-512.png" width="40">
 #3
 * 	Пользователь может добавлять, удалять и редактировать комментарии, нравится или не нравится сообщения, изображения
 #4
