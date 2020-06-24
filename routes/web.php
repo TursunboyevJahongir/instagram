@@ -20,3 +20,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Route::get('user', 'API\ProfileController@update');
+Route::get('profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
+Route::patch('profile/{user}','ProfilesController@update');
+
+Route::get('/password/change/{user}', 'ProfilesController@passwordGet')->name('profile.edit');
+Route::patch('profile/{user}','ProfilesController@update');
