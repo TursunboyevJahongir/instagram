@@ -11,7 +11,6 @@ class ProfilesController extends Controller
     public function __construct()
     {
         $this->middleware('auth')->except(['profile']);
-
     }
     /**
      * Display a listing of the resource.

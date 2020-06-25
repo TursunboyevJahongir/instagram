@@ -23,7 +23,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/{username}', 'ProfilesController@profile');
 Route::get('profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
-Route::patch('profile/{user}','ProfilesController@update')->middleware('auth');
+Route::patch('profile/{user}','ProfilesController@update');
 
-Route::get('/password/change/{user}', 'ProfilesController@passwordGet')->name('profile.edit')->middleware('auth');
-Route::patch('profile/{user}','ProfilesController@update')->middleware('auth');
+Route::get('/password/change/{user}', 'ProfilesController@passwordGet');//todo
+Route::patch('/profile/{user}','ProfilesController@update');
+
+Route::get('/post/create','PostsController@create');
+Route::post('/post','PostsController@store');
+
