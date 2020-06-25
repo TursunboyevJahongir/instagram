@@ -21,9 +21,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Route::get('user', 'API\ProfileController@update');
+Route::get('/{username}', 'ProfilesController@profile');
 Route::get('profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
-Route::patch('profile/{user}','ProfilesController@update');
+Route::patch('profile/{user}','ProfilesController@update')->middleware('auth');
 
-Route::get('/password/change/{user}', 'ProfilesController@passwordGet')->name('profile.edit');
-Route::patch('profile/{user}','ProfilesController@update');
+Route::get('/password/change/{user}', 'ProfilesController@passwordGet')->name('profile.edit')->middleware('auth');
+Route::patch('profile/{user}','ProfilesController@update')->middleware('auth');

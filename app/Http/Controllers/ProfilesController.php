@@ -8,14 +8,20 @@ use Intervention\Image\Facades\Image;
 
 class ProfilesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['profile']);
+
+    }
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function profile($username)
     {
-        //
+        $user = User::where('username',$username)->first();
+        return view('profile',compact('user'));
     }
 
     /**
