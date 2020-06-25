@@ -29,5 +29,9 @@ Route::get('/password/change/{user}', 'ProfilesController@passwordGet');//todo
 Route::patch('/profile/{user}','ProfilesController@update');
 
 Route::get('/post/create','PostsController@create');
+//Route::get('/post/create',function (){
+//    return 'cd';
+//});
+Route::get('/post/{slug}','PostsController@show');
 Route::post('/post','PostsController@store');
 

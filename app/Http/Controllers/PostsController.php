@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Posts;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -18,8 +19,10 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create()
+    public function create($slug)
     {
+        $quiz= Posts::getRecordWithSlug($slug);
+        dd($quiz->title);
         return view('posts.create');
     }
 
@@ -53,20 +56,24 @@ class PostsController extends Controller
         $all['image'] = $path;
         $image = Image::make(public_path($path))->fit(1200);
         $image->save();
+        dd(auth()->user('name'));
+        $all['slug'] = makeSlug(auth()->user());
         auth()->user()->posts()->create($all);
         $user =auth()->user();
-        return redirect($user->username);
+        return view('home');
+//        return redirect($user->username);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $post= Posts::getRecordWithSlug($slug);
+        return view('posts.show',compact('post'));
     }
 
     /**
