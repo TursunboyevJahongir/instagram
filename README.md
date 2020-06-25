@@ -20,13 +20,13 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 
 #
-*	Просмотр страницы, которая показывает все сообщения, изображения и комментарии всех пользователей. 
+*	Просмотр страницы, которая показывает все сообщения, изображения и комментарии всех пользователей. <img src="https://cdn1.iconfinder.com/data/icons/flat-and-simple-part-1/128/check_square-512.png" width="30">
 
 #
 * 	Пользователь может добавлять, удалять и редактировать комментарии, нравится или не нравится сообщения, изображения<img src="https://cdn4.iconfinder.com/data/icons/business-2-7/512/sand_clock-512.png" width="40">
 
 # 
-* 	Каждый пользователь может войти в свой аккаунт и увидеть все свои действия, посты внутри своего аккаунта.
+* 	Каждый пользователь может войти в свой аккаунт и увидеть все свои действия, посты внутри своего аккаунта.<img src="https://cdn1.iconfinder.com/data/icons/flat-and-simple-part-1/128/check_square-512.png" width="30">
 
 #
 * 	Пользователь может публиковать новые изображения с комментариями и после публикации его пост должен быть виден на странице просмотра <img src="https://cdn1.iconfinder.com/data/icons/flat-and-simple-part-1/128/check_square-512.png" width="30">

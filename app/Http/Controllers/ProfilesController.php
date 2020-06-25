@@ -75,17 +75,10 @@ class ProfilesController extends Controller
             'url' => 'nullable',
             'description' => 'nullable',
         ]);
-//        dd($request->avatar);
         $all = $request->all();
         if ($request->file('avatar')) {
             @unlink(public_path() . $user->avatar);
-//            if (!$request->hasFile('avatar')) {
-//                return response()->json(['upload_file_not_found'], 400);
-//            }
             $file = $request->file('avatar');
-//            if (!$file->isValid()) {
-//                return response()->json(['invalid_file_upload'], 400);
-//            }
             $path = public_path() . '/uploads/users/';
             $fileName = $file->getATime() . '.' . $file->getClientOriginalExtension();
             $file->move($path, $fileName);
@@ -94,18 +87,11 @@ class ProfilesController extends Controller
             $all['avatar'] = $path;
             $avatar = Image::make(public_path($path))->fit(300);
             $avatar->save();
-//        $data = User::create($all);
         }
         $user->update($all);
-//        dd($all);
         return view('home');
-//
-//        return response()->json([
-//            'message' => 'Great success! User updated',
-//            'data' => $id,
-//        ]);
     }
-
+    //todo
     public function passwordGet(User $user)
     {
         return view('user.password', compact('user'));

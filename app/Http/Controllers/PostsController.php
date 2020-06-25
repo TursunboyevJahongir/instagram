@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comments;
 use App\Posts;
 use App\User;
 use Illuminate\Http\Request;
@@ -57,8 +58,8 @@ class PostsController extends Controller
         $image = Image::make(public_path($path))->fit(1200);
         $image->save();
         dd(auth()->user('name'));
-        $all['slug'] = makeSlug(auth()->user());
-        auth()->user()->posts()->create($all);
+        $all['slug'] = makeSlug(auth()->user());//todo
+        auth()->user()->posts->create($all);
         $user =auth()->user();
         return view('home');
 //        return redirect($user->username);
@@ -73,7 +74,9 @@ class PostsController extends Controller
     public function show($slug)
     {
         $post= Posts::getRecordWithSlug($slug);
-        return view('posts.show',compact('post'));
+        $comments = Comments::getComments($post->id);
+
+        return view('posts.show',compact(['post','comments']));
     }
 
     /**

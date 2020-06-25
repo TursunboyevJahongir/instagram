@@ -20,16 +20,11 @@
         </div>
     </div>
 
-    <div class="card-group row mt-3">
+    <div class="card-group row mt-3 m-3">
         @foreach($user->posts as $post)
             <div class="col-4 pb-3">
-                <div class="card">
+                <div class="card cardHover">
                     <a href="post/{{$post->slug}}"><img src="{{$post->image}}" class="card-img-top "></a>
-                    <div class="card-body">
-                        <h5 class="card-title">{{$post->title}}</h5>
-                        <p class="card-text">{{$post->description}}</p>
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                    </div>
                 </div>
             </div>
         @endforeach

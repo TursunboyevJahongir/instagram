@@ -21,6 +21,11 @@ class Posts extends Model
 
     public static function getRecordWithSlug($slug)
     {
-        return Posts::where('slug', '=', $slug)->first();
+        return Posts::where('slug', $slug)->first();
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comments::class )->orderBy('created_at','DESC');
     }
 }
