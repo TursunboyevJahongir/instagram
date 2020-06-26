@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
 
 class PostsController extends Controller
 {
@@ -20,10 +21,8 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function create($slug)
+    public function create()
     {
-        $quiz= Posts::getRecordWithSlug($slug);
-        dd($quiz->title);
         return view('posts.create');
     }
 
@@ -57,10 +56,9 @@ class PostsController extends Controller
         $all['image'] = $path;
         $image = Image::make(public_path($path))->fit(1200);
         $image->save();
-        dd(auth()->user('name'));
-        $all['slug'] = makeSlug(auth()->user());//todo
-        auth()->user()->posts->create($all);
-        $user =auth()->user();
+        $all['slug'] = time();//todo
+        auth()->user()->posts()->create($all);
+        $user = auth()->user();
         return view('home');
 //        return redirect($user->username);
     }
