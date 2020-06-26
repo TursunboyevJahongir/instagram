@@ -27,7 +27,7 @@ class CommentaryController extends Controller
         $data['comment'] = $request['comment'];
 
         auth()->user()->comments()->create($data);
-        return redirect('/post/'.$slug);
+        return redirect()->back();
     }
 
     public function update(Request $request, $id)
@@ -43,9 +43,7 @@ class CommentaryController extends Controller
      */
     public function destroy(Comments $id)
     {
-        $slug = Comments::getPostSlug($id->post_id);
         $id->delete();
-
-        return redirect('/post/'.$slug->slug);
+        return redirect()->back();
     }
 }

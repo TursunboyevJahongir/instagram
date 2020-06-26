@@ -13,14 +13,51 @@ class ProfilesController extends Controller
         $this->middleware('auth')->except(['profile']);
     }
     /**
+     * Follow the user.
+     *
+     * @param $profileId
+     *
+     */
+    public function followUser(int $profileId)
+    {
+        $user = User::find($profileId);
+        if(! $user) {
+            return redirect()->back()->with('error', 'User does not exist.');
+        }
+
+        $user->followers()->attach(auth()->user()->id);
+        return redirect()->back()->with('success', 'Successfully followed the user.');
+    }
+
+    /**
+     * Follow the user.
+     *
+     * @param $profileId
+     *
+     */
+    public function unFollowUser(int $profileId)
+    {
+        $user = User::find($profileId);
+        if(! $user) {
+
+            return redirect()->back()->with('error', 'User does not exist.');
+        }
+        $user->followers()->detach(auth()->user()->id);
+        return redirect()->back()->with('success', 'Successfully unfollowed the user.');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function profile($username)
     {
+//        $followers = (auth()->user())
         $user = User::where('username',$username)->first();
-        return view('profile',compact('user'));
+        $followers = $user->followers;
+        $followings = $user->followings;
+        return view('profile',compact('user','followers' , 'followings'));
     }
 
     /**

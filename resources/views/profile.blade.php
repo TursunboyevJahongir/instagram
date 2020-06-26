@@ -7,7 +7,11 @@
         <div class="col-9">
             <div class="d-flex justify-content-between">
                 <h1>{{$user->username}}</h1>
-
+                <form action="/profile/{{ $user->id }}/follow" method="post">
+                    @csrf
+                    <button type="submit">Follow User</button>
+                </form>
+{{--                <a href="{{ route('user.unfollow'), $user->id }}">Unollow User</a>--}}
             </div>
             <div class="d-flex">
                 <div class='pr-4'><strong>{{$user->posts->count()}}</strong> публикаций</div>

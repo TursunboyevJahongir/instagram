@@ -38,3 +38,6 @@ Route::post('/post','PostsController@store');
 Route::post('/commentary/{slug}','CommentaryController@index');
 Route::delete('/commentary/{id}','CommentaryController@destroy');
 
+Route::post('/profile/{profileId}/follow', 'ProfilesController@followUser')->name('user.follow');
+Route::post('/{profileId}/unfollow', 'ProfilesController@unFollowUser')->name('user.unfollow');
+
