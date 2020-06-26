@@ -1,15 +1,78 @@
-.cardHover{
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)!important;
+.cardHover {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+    opacity: 1;
+    transition: 0.39s;
+    border: 1px solid #E8DAEF;
 
 }
-.cardHover:hover{
-    /*border-radius: 40%;*/
-    box-shadow: -42px 8px 34px -4px rgba(0,0,0,0.16),-13px 15px 30px 6px rgba(0,0,0,0.12)!important;
-    transform: translateX(5px);
+
+.cardHover:hover {
+    /*border-radius: 80%;*/
+    box-shadow: -42px 8px 34px -4px rgba(0, 0, 0, 0.16), -13px 15px 30px 6px rgba(0, 0, 0, 0.12) !important;
+    transform: scale(1.1);
+
+    opacity: 0.80;
+    border: 1px solid #884EA0;
     /*-webkit-transition:  2s; !* For Safari 3.1 to 6.0 *!*/
-    transition:  1s;
+    transition: 0.39s;
 }
-.hidetext{
+
+.transform {
+    -ms-transform: rotate(5deg); /* IE 9 */
+    transform: rotate(5deg);
+}
+
+.bd-callout {
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #eee;
+    border-left-width: .25rem;
+    border-radius: .25rem
+}
+
+.bd-callout h4 {
+    margin-top: 0;
+    margin-bottom: .25rem
+}
+
+.bd-callout p:last-child {
+    margin-bottom: 0
+}
+
+.bd-callout code {
+    border-radius: .25rem
+}
+
+.bd-callout + .bd-callout {
+    margin-top: -.25rem
+}
+
+.bd-callout-info {
+    border-left-color: #5bc0de
+}
+
+.bd-callout-info h4 {
+    color: #5bc0de
+}
+
+.bd-callout-warning {
+    border-left-color: #f0ad4e
+}
+
+.bd-callout-warning h4 {
+    color: #f0ad4e
+}
+
+.bd-callout-danger {
+    border-left-color: #d9534f
+}
+
+.bd-callout-danger h4 {
+    color: #d9534f
+}
+
+.hidetext {
     position: absolute;
     z-index: -5;
     transform: rotate(90deg);

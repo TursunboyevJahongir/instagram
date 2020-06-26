@@ -13,6 +13,10 @@ class Comments extends Model
         return Comments::where('post_id', $id)->orderBy('created_at')->get();
     }
 
+    public static function getPostSlug($id)
+    {
+        return Posts::where('id', $id)->first();
+    }
 
     public function posts()
     {

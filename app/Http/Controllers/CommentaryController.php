@@ -29,4 +29,23 @@ class CommentaryController extends Controller
         auth()->user()->comments()->create($data);
         return redirect('/post/'.$slug);
     }
+
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function destroy(Comments $id)
+    {
+        $slug = Comments::getPostSlug($id->post_id);
+        $id->delete();
+
+        return redirect('/post/'.$slug->slug);
+    }
 }
