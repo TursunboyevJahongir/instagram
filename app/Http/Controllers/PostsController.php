@@ -56,7 +56,7 @@ class PostsController extends Controller
         $all['image'] = $path;
         $image = Image::make(public_path($path))->fit(1200);
         $image->save();
-        $all['slug'] = time();//todo
+        $all['slug'] = str_random(10);
         auth()->user()->posts()->create($all);
         $user = auth()->user();
         return view('home');
