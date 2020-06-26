@@ -126,7 +126,7 @@ class ProfilesController extends Controller
             $avatar->save();
         }
         $user->update($all);
-        return view('home');
+        return redirect('/home');
     }
     //todo
     public function passwordGet(User $user)
