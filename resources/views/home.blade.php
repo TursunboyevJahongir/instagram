@@ -16,9 +16,9 @@
         </a>
     </div>
         <div class="d-flex">
-            <div class='pr-4'><strong>{{   Auth::user()->posts()->count()}}</strong> публикаций</div>
-            <div class='pr-4'><strong>193</strong>подписчиков</div>
-            <div class='pr-4'><strong>222</strong>подписок</div>
+            <div class='pr-4'><strong>{{Auth::user()->posts()->count()}}</strong> публикаций</div>
+            <div class='pr-4'><strong>{{Auth::user()->followers()->count()}}</strong>подписчиков</div>
+            <div class='pr-4'><strong>{{Auth::user()->followings()->count()}}</strong>подписок</div>
         </div>
     <div class="pt-4 "><b>{{Auth::user()->name}}</b></div>
         <div>{{Auth::user()->description}}</div>

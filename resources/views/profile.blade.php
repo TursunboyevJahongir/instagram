@@ -11,12 +11,17 @@
                     @csrf
                     <button type="submit">Follow User</button>
                 </form>
+
+                <form action="/{{ $user->id }}/unfollow" method="post">
+                    @csrf
+                    <button type="submit">UnFollow User</button>
+                </form>
 {{--                <a href="{{ route('user.unfollow'), $user->id }}">Unollow User</a>--}}
             </div>
             <div class="d-flex">
                 <div class='pr-4'><strong>{{$user->posts->count()}}</strong> публикаций</div>
-                <div class='pr-4'><strong>193</strong>подписчиков</div>
-                <div class='pr-4'><strong>222</strong>подписок</div>
+                <div class='pr-4'><strong>{{$user->followers()->count()}}</strong>подписчиков</div>
+                <div class='pr-4'><strong>{{$user->followings()->count()}}</strong>подписок</div>
             </div>
             <div class="pt-4 "><b>{{$user->name}}</b></div>
             <div>{{$user->description}}</div>
